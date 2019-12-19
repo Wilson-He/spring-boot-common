@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
     <name>spring-boot-common</name>
     <url>https://github.com/Wilson-He/spring-boot-common</url>
-    <description>An auto configuration framework for api parameter validation.</description>
+    <description>Personal common spring boot utils.</description>
     <scm>
         <connection>git@github.com:Wilson-He/spring-boot-common.git</connection>
         <url>https://github.com/Wilson-He/spring-boot-common</url>
@@ -108,6 +108,7 @@
     </distributionManagement>
 
     <build>
+        <finalName>spring-boot-common</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
