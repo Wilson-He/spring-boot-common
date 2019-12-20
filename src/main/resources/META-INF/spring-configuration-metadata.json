@@ -1,7 +1,7 @@
 {
   "hints": [
     {
-      "name": "spring.boot.common.validation.msg-locale",
+      "name": "spring.common.validation.msg-locale",
       "type": "java.lang.String",
       "values": [
         {
