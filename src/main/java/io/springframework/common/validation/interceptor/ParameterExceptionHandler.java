@@ -39,7 +39,7 @@ public class ParameterExceptionHandler {
     /**
      * 参数校验结果语言类型
      */
-    @Value("${spring.common.validation.msg-locale}")
+    @Value("${spring.common.validation.msg-locale:zh_CN}")
     private String msgLocale;
     private String messageFormat;
 

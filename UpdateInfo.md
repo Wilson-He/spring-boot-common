@@ -1,0 +1,2 @@
+- 0.0.3
+  - 设置spring.common.validation.msg-locale默认为<code>zh_CN</code>
