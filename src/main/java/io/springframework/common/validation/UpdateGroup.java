@@ -1,4 +1,4 @@
-package io.springframework.common.validation.group;
+package io.springframework.common.validation;
 
 /**
  * @author Wilson

@@ -1,3 +1,5 @@
+- 0.0.5
+  - 添加异常(AppException)及全局异常拦截器(GlobalExceptionHandler)
 - 0.0.4
   - 添加BaseVO与copyProperties方法
 - 0.0.3

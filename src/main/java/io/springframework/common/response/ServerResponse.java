@@ -30,11 +30,23 @@ public class ServerResponse<T> {
         return new ServerResponse<>(code, msg);
     }
 
+    /**
+     * 服务器内部错误
+     *
+     * @param msg 错误信息
+     * @param <T>
+     * @return
+     */
     public static <T> ServerResponse<T> serverError(String msg) {
         return new ServerResponse<>(DefaultCodeMsg.SERVER_ERROR.code(), msg);
     }
 
-
+    /**
+     * 参数错误
+     *
+     * @param msg 错误信息
+     * @return
+     */
     public static <T> ServerResponse<T> paramError(String msg) {
         return new ServerResponse<>(DefaultCodeMsg.PARAM_FAILED.code(), msg);
     }
@@ -53,10 +65,6 @@ public class ServerResponse<T> {
         this.code = DefaultCodeMsg.SUCCESS.code();
         this.msg = DefaultCodeMsg.SUCCESS.msg();
         this.data = data;
-    }
-
-    public String toJsonString() {
-        return "{\"msg\":\"" + msg + "\"," + "\"code\":" + code + "}";
     }
 
     public ServerResponse<T> data(T data) {
