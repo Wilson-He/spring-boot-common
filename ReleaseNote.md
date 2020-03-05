@@ -1,3 +1,6 @@
+- 0.0.6
+  - 添加异常(AppException)默认错误码
+  - 更改响应常量类名
 - 0.0.5
   - 添加异常(AppException)及全局异常拦截器(GlobalExceptionHandler)
 - 0.0.4

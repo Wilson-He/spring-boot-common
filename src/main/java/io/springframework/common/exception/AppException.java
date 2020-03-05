@@ -1,5 +1,6 @@
 package io.springframework.common.exception;
 
+import io.springframework.common.response.DefaultCodeMsg;
 import lombok.Getter;
 
 /**
@@ -11,6 +12,11 @@ import lombok.Getter;
 @Getter
 public class AppException extends RuntimeException {
     private final Integer code;
+
+    public AppException(String message) {
+        super(message);
+        this.code = DefaultCodeMsg.SERVER_ERROR.code();
+    }
 
     public AppException(Integer code, String message) {
         super(message);
