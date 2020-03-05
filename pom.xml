@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.wilson-he</groupId>
     <artifactId>spring-boot-common</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
     <name>spring-boot-common</name>
     <url>https://github.com/Wilson-He/spring-boot-common</url>
@@ -18,7 +18,7 @@
     <scm>
         <connection>git@github.com:Wilson-He/spring-boot-common.git</connection>
         <url>https://github.com/Wilson-He/spring-boot-common</url>
-        <tag>spring-boot-common-0.0.3.RELEASE</tag>
+        <tag>spring-boot-common-0.0.4.RELEASE</tag>
     </scm>
     <licenses>
         <license>
