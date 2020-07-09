@@ -1,3 +1,5 @@
+- 0.0.9
+  - `BussinessException`添加`ResponseCodeMsg`参数构造函数
 - 0.0.8
   - 添加`JsonProcessingException`异常拦截
 - 0.0.7

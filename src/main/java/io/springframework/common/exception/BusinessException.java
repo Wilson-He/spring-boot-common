@@ -1,6 +1,7 @@
 package io.springframework.common.exception;
 
 import io.springframework.common.response.DefaultCodeMsg;
+import io.springframework.common.response.ResponseCodeMsg;
 import lombok.Getter;
 
 /**
@@ -21,5 +22,10 @@ public class BusinessException extends RuntimeException {
     public BusinessException(Integer code, String message) {
         super(message);
         this.code = code;
+    }
+
+    public BusinessException(ResponseCodeMsg codeMsg) {
+        super(codeMsg.msg());
+        this.code = codeMsg.code();
     }
 }
