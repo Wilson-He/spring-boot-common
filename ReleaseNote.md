@@ -1,3 +1,7 @@
+- 0.0.8
+  - 添加`JsonProcessingException`异常拦截
+- 0.0.7
+  - 更改业务异常(AppException)命名为BusinessException
 - 0.0.6
   - 添加异常(AppException)默认错误码
   - 更改响应常量类名

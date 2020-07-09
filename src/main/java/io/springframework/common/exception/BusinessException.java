@@ -10,15 +10,15 @@ import lombok.Getter;
  * @since 2020/3/5
  **/
 @Getter
-public class AppException extends RuntimeException {
+public class BusinessException extends RuntimeException {
     private final Integer code;
 
-    public AppException(String message) {
+    public BusinessException(String message) {
         super(message);
         this.code = DefaultCodeMsg.SERVER_ERROR.code();
     }
 
-    public AppException(Integer code, String message) {
+    public BusinessException(Integer code, String message) {
         super(message);
         this.code = code;
     }
