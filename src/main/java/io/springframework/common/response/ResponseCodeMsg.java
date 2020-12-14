@@ -5,8 +5,8 @@ package io.springframework.common.response;
  * @since 2019/12/19
  **/
 public class ResponseCodeMsg {
-    private int code;
-    private String msg;
+    private final int code;
+    private final String msg;
 
     public ResponseCodeMsg(int code, String msg) {
         this.code = code;

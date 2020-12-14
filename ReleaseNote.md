@@ -1,3 +1,6 @@
+- 0.0.10
+  - 添加集合optional类`OptionalCollection`
+  - `BussinessException`重命名为`ApiException`
 - 0.0.9
   - `BussinessException`添加`ResponseCodeMsg`参数构造函数
 - 0.0.8
