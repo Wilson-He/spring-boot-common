@@ -40,6 +40,12 @@
       "default": "false",
       "type": "java.lang.Boolean",
       "description": "是否启用将Long类型序列化为String类型避免精度损失"
+    },
+    {
+      "sourceType": "io.springframework.common.config.ClassBeanInjector",
+      "name": "spring.common.injector.classes",
+      "type": "java.lang.List<Class>",
+      "description": "需注入的无参构造Class列表,可以字符串列表配置注入"
     }
   ]
 }
