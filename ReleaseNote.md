@@ -1,6 +1,8 @@
-- 0.0.10
+- 0.1.0
   - 添加Class反射构造Bean注射器 `ClassBeanInjector`
   - `BussinessException`重命名为`ApiException`
+  - `ResponseCodeMsg` 重命名为 `CodeMsg`,`HttpResponseCodeMsg` 重命名为 `HttpCodeMsg`
+  - ``
 - 0.0.9
   - `BussinessException`添加`ResponseCodeMsg`参数构造函数
 - 0.0.8

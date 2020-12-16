@@ -1,7 +1,7 @@
 package io.springframework.common.exception;
 
-import io.springframework.common.response.DefaultCodeMsg;
-import io.springframework.common.response.ResponseCodeMsg;
+import io.springframework.common.response.CodeMsg;
+import io.springframework.common.response.HttpCodeMsg;
 import lombok.Getter;
 
 /**
@@ -16,7 +16,7 @@ public class ApiException extends RuntimeException {
 
     public ApiException(String message) {
         super(message);
-        this.code = DefaultCodeMsg.SERVER_ERROR.code();
+        this.code = HttpCodeMsg.SERVER_ERROR.code();
     }
 
     public ApiException(Integer code, String message) {
@@ -24,7 +24,7 @@ public class ApiException extends RuntimeException {
         this.code = code;
     }
 
-    public ApiException(ResponseCodeMsg codeMsg) {
+    public ApiException(CodeMsg codeMsg) {
         super(codeMsg.msg());
         this.code = codeMsg.code();
     }
