@@ -28,7 +28,7 @@
   ],
   "properties": [
      {
-      "sourceType": "io.springframework.common.handler.ParameterExceptionHandler",
+      "sourceType": "io.springframework.common.advice.ParameterExceptionHandler",
       "name": "spring.common.validation.msg-locale",
       "default": "en",
       "type": "java.lang.String",

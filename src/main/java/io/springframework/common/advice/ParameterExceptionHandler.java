@@ -1,4 +1,4 @@
-package io.springframework.common.handler;
+package io.springframework.common.advice;
 
 import io.springframework.common.response.ServerResponse;
 import org.apache.commons.lang3.LocaleUtils;
@@ -64,7 +64,7 @@ public class ParameterExceptionHandler {
      */
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Object postParamExceptionHandler(MethodArgumentNotValidException exception) {
+    public ServerResponse<?> postParamExceptionHandler(MethodArgumentNotValidException exception) {
         FieldError fieldError = exception.getBindingResult().getFieldError();
         String message = fieldError.getDefaultMessage();
         return ServerResponse.paramError(message.endsWith(";")
@@ -79,8 +79,8 @@ public class ParameterExceptionHandler {
      */
     @ExceptionHandler({ConstraintViolationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ServerResponse getParamExceptionHandler(ConstraintViolationException exception) {
-        ConstraintViolation first = new ArrayList<>(exception.getConstraintViolations()).get(0);
+    public ServerResponse<?> getParamExceptionHandler(ConstraintViolationException exception) {
+        ConstraintViolation<?> first = new ArrayList<>(exception.getConstraintViolations()).get(0);
         String defaultMsg = first.getMessage();
         String end = ";";
         if (!defaultMsg.endsWith(end)) {

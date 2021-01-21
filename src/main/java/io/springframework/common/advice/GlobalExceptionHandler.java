@@ -1,4 +1,4 @@
-package io.springframework.common.handler;
+package io.springframework.common.advice;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.springframework.common.exception.ApiException;

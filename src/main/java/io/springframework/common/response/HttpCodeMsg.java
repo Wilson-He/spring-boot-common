@@ -14,7 +14,7 @@ public enum HttpCodeMsg implements CodeMsg {
     BAD_REQUEST(400, "参数错误"),
     UN_AUTHENTICATION(401, "请先登录"),
     ACCESS_DENY(403, "权限不足"),
-    NOT_FOUND(404, "页面不见咯"),
+    NOT_FOUND(404, "页面不见了"),
     METHOD_NOT_ALLOWED(405, "请求方法错误"),
     UN_AUTHORIZATION(406, "权限不足"),
     REQUEST_TIMEOUT(408, "请求超时"),
