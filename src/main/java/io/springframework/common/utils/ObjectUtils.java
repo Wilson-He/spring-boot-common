@@ -10,7 +10,7 @@ import java.util.function.Supplier;
  * @date 2019/10/31
  **/
 @NoArgsConstructor
-public class ObjectUtils {
+public final class ObjectUtils {
 
     public static <S, T> T copyProperties(S source, T target) {
         BeanUtils.copyProperties(source, target);
@@ -22,4 +22,5 @@ public class ObjectUtils {
         BeanUtils.copyProperties(source, target);
         return target;
     }
+
 }

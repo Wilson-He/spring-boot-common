@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 /**
  * @author Wilson
  */
-public class ApiAssert {
+public final class ApiAssert {
 
 	public static void isTrue(boolean expression, Supplier<ApiException> supplier) {
 		if (!expression) {

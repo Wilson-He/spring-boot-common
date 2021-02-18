@@ -25,7 +25,7 @@ import java.util.Optional;
 @Slf4j
 @Configuration
 @EnableAutoConfiguration
-@ConfigurationProperties("spring.common.injector")
+@ConfigurationProperties("spring.common-web.inject-classes")
 public class ClassBeanInjector implements ApplicationContextAware {
 	private ConfigurableListableBeanFactory beanFactory;
 	/**

@@ -28,8 +28,6 @@ import java.util.*;
  *
  * @author Wilson
  */
-@Configuration
-@ControllerAdvice
 @RestControllerAdvice
 @ConfigurationProperties(prefix = "spring.boot.common.validation")
 public class ParameterExceptionHandler {
@@ -62,8 +60,8 @@ public class ParameterExceptionHandler {
      * @param exception body格式参数校验
      * @return 参数错误
      */
-    @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ServerResponse<?> postParamExceptionHandler(MethodArgumentNotValidException exception) {
         FieldError fieldError = exception.getBindingResult().getFieldError();
         String message = fieldError.getDefaultMessage();
@@ -77,8 +75,8 @@ public class ParameterExceptionHandler {
      * @param exception query格式参数校验
      * @return 参数错误
      */
-    @ExceptionHandler({ConstraintViolationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ConstraintViolationException.class)
     public ServerResponse<?> getParamExceptionHandler(ConstraintViolationException exception) {
         ConstraintViolation<?> first = new ArrayList<>(exception.getConstraintViolations()).get(0);
         String defaultMsg = first.getMessage();

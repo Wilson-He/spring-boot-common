@@ -72,18 +72,6 @@ public class ServerResponse<T> {
 		this.data = data;
 	}
 
-	private static final ServerResponse<?> SUCCESS = ServerResponse.of(HttpCodeMsg.SUCCESS);
-	private static final ServerResponse<?> PARAM_FAILED = ServerResponse.of(HttpCodeMsg.BAD_REQUEST);
-	private static final ServerResponse<?> UN_AUTHENTICATION = ServerResponse.of(HttpCodeMsg.UN_AUTHENTICATION);
-	private static final ServerResponse<?> ACCESS_DENY = ServerResponse.of(HttpCodeMsg.ACCESS_DENY);
-	private static final ServerResponse<?> NOT_FOUND = ServerResponse.of(HttpCodeMsg.NOT_FOUND);
-	private static final ServerResponse<?> METHOD_NOT_ALLOWED = ServerResponse.of(HttpCodeMsg.METHOD_NOT_ALLOWED);
-	private static final ServerResponse<?> UN_AUTHORIZATION = ServerResponse.of(HttpCodeMsg.UN_AUTHORIZATION);
-	private static final ServerResponse<?> REQUEST_TIMEOUT = ServerResponse.of(HttpCodeMsg.REQUEST_TIMEOUT);
-	private static final ServerResponse<?> SERVER_ERROR = ServerResponse.of(HttpCodeMsg.SERVER_ERROR);
-	private static final ServerResponse<?> BAD_GATEWAY = ServerResponse.of(HttpCodeMsg.BAD_GATEWAY);
-	private static final ServerResponse<?> GATEWAY_TIMEOUT = ServerResponse.of(HttpCodeMsg.GATEWAY_TIMEOUT);
-
 	public static ServerResponse<?> SUCCESS() {
 		return SUCCESS;
 	}
@@ -127,4 +115,18 @@ public class ServerResponse<T> {
 	public static ServerResponse<?> gatewayTimeout() {
 		return GATEWAY_TIMEOUT;
 	}
+
+
+
+	private static final ServerResponse<?> SUCCESS = ServerResponse.of(HttpCodeMsg.SUCCESS);
+	private static final ServerResponse<?> PARAM_FAILED = ServerResponse.of(HttpCodeMsg.BAD_REQUEST);
+	private static final ServerResponse<?> UN_AUTHENTICATION = ServerResponse.of(HttpCodeMsg.UN_AUTHENTICATION);
+	private static final ServerResponse<?> ACCESS_DENY = ServerResponse.of(HttpCodeMsg.ACCESS_DENY);
+	private static final ServerResponse<?> NOT_FOUND = ServerResponse.of(HttpCodeMsg.NOT_FOUND);
+	private static final ServerResponse<?> METHOD_NOT_ALLOWED = ServerResponse.of(HttpCodeMsg.METHOD_NOT_ALLOWED);
+	private static final ServerResponse<?> UN_AUTHORIZATION = ServerResponse.of(HttpCodeMsg.UN_AUTHORIZATION);
+	private static final ServerResponse<?> REQUEST_TIMEOUT = ServerResponse.of(HttpCodeMsg.REQUEST_TIMEOUT);
+	private static final ServerResponse<?> SERVER_ERROR = ServerResponse.of(HttpCodeMsg.SERVER_ERROR);
+	private static final ServerResponse<?> BAD_GATEWAY = ServerResponse.of(HttpCodeMsg.BAD_GATEWAY);
+	private static final ServerResponse<?> GATEWAY_TIMEOUT = ServerResponse.of(HttpCodeMsg.GATEWAY_TIMEOUT);
 }
