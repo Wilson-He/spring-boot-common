@@ -2,18 +2,17 @@
   - 添加Class反射构造Bean注射器 `ClassBeanInjector`
   - `BussinessException`重命名为`ApiException`
   - `ResponseCodeMsg` 重命名为 `CodeMsg`,`HttpResponseCodeMsg` 重命名为 `HttpCodeMsg`
-  - ``
 - 0.0.9
   - `BussinessException`添加`ResponseCodeMsg`参数构造函数
 - 0.0.8
   - 添加`JsonProcessingException`异常拦截
 - 0.0.7
-  - 更改业务异常(AppException)命名为BusinessException
+  - 更改业务异常 `AppException` 名为 `BusinessException`
 - 0.0.6
-  - 添加异常(AppException)默认错误码
+  - 添加异常(`AppException`)默认错误码
   - 更改响应常量类名
 - 0.0.5
-  - 添加异常(AppException)及全局异常拦截器(GlobalExceptionHandler)
+  - 添加异常(`AppException`)及全局异常拦截器(`GlobalExceptionHandler`)
 - 0.0.4
   - 添加BaseVO与copyProperties方法
 - 0.0.3
