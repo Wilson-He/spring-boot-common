@@ -25,39 +25,39 @@ import java.util.Optional;
 @Slf4j
 @Configuration
 @EnableAutoConfiguration
-@ConfigurationProperties("spring.common-web.inject-classes")
+@ConfigurationProperties("spring.common.inject-classes")
 public class ClassBeanInjector implements ApplicationContextAware {
-	private ConfigurableListableBeanFactory beanFactory;
-	/**
-	 * 需注入的无参构造Class列表
-	 */
-	@Setter
-	private List<Class<?>> classes;
+    private ConfigurableListableBeanFactory beanFactory;
+    /**
+     * 需注入的无参构造Class列表
+     */
+    @Setter
+    private List<Class<?>> classes;
 
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		if (applicationContext instanceof AbstractRefreshableApplicationContext) {
-			beanFactory = ((AbstractRefreshableApplicationContext) applicationContext).getBeanFactory();
-		} else {
-			beanFactory = ((GenericApplicationContext) applicationContext).getBeanFactory();
-		}
-	}
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if (applicationContext instanceof AbstractRefreshableApplicationContext) {
+            beanFactory = ((AbstractRefreshableApplicationContext) applicationContext).getBeanFactory();
+        } else {
+            beanFactory = ((GenericApplicationContext) applicationContext).getBeanFactory();
+        }
+    }
 
-	@PostConstruct
-	public void init() {
-		Optional.ofNullable(classes)
-				.filter(classes -> !classes.isEmpty())
-				.ifPresent(classes -> classes.forEach(clz -> {
-					try {
-						//Class<?> clz = Class.forName(clazz);
-						String beanName = StringUtils.uncapitalize(clz.getSimpleName());
-						beanFactory.registerSingleton(beanName, clz.newInstance());
-					} catch (InstantiationException | IllegalAccessException e) {
-						log.error("Class {} can't find no args constructor.", clz, e);
-					}
-					log.info("All classes of {} already registered an instance in container", classes.toString()
-							.replaceAll("class\\s", ""));
-				}));
-	}
+    @PostConstruct
+    public void init() {
+        Optional.ofNullable(classes)
+                .filter(classes -> !classes.isEmpty())
+                .ifPresent(classes -> classes.forEach(clz -> {
+                    try {
+                        //Class<?> clz = Class.forName(clazz);
+                        String beanName = StringUtils.uncapitalize(clz.getSimpleName());
+                        beanFactory.registerSingleton(beanName, clz.newInstance());
+                    } catch (InstantiationException | IllegalAccessException e) {
+                        log.error("Class {} can't find no args constructor.", clz, e);
+                    }
+                    log.info("All classes of {} already registered an instance in container", classes.toString()
+                            .replaceAll("class\\s", ""));
+                }));
+    }
 
 }

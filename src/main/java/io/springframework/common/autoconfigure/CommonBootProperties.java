@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @author Wilson
  */
-@ConfigurationProperties("web-common")
+@ConfigurationProperties("spring.common")
 @ConfigurationPropertiesBinding
 @Getter
 @ToString
