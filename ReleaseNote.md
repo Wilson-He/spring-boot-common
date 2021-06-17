@@ -1,3 +1,5 @@
+- 0.1.1
+  - 添加国际化组件，可通过`i18n`进行国际化信息配置
 - 0.1.0
   - 添加Class反射构造Bean注射器 `ClassBeanInjector`
   - `BussinessException`重命名为`ApiException`

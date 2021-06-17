@@ -72,7 +72,7 @@ public class ServerResponse<T> {
 		this.data = data;
 	}
 
-	public static ServerResponse<?> SUCCESS() {
+	public static ServerResponse<?> success() {
 		return SUCCESS;
 	}
 

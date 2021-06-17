@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.wilson-he</groupId>
     <artifactId>spring-boot-common</artifactId>
-    <version>0.2.0</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
     <name>spring-boot-common</name>
     <url>https://github.com/Wilson-He/spring-boot-common</url>
@@ -18,7 +18,7 @@
     <scm>
         <connection>git@github.com:Wilson-He/spring-boot-common.git</connection>
         <url>https://github.com/Wilson-He/spring-boot-common</url>
-        <tag>spring-boot-common-0.2.0.RELEASE</tag>
+        <tag>spring-boot-common-0.1.1.RELEASE</tag>
     </scm>
     <licenses>
         <license>
@@ -105,6 +105,11 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <distributionManagement>
@@ -133,7 +138,7 @@
 
     <build>
         <finalName>spring-boot-common</finalName>
-        <plugins>
+    <!--    <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
@@ -203,7 +208,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
 </project>

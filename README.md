@@ -71,3 +71,40 @@ application.yml
 当同一参数多于1个不符合校验规则则会随机返回一个错误信息，即name参数为空时可能返回"name不能为空"或自定义信息"正则错误"。自定义的校验信息会覆盖原注解固定校验信息，如@NotBlank(message = "名字不能为空")则将返回"名字不能为空"，无定义则会返回默认信息:参数名+错误信息(即"name不能为空")
 ![get参数校验](https://img-blog.csdnimg.cn/2019021119581427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3oyODEyNjMwOA==,size_16,color_FFFFFF,t_70)
 ![post vo校验](https://img-blog.csdnimg.cn/20190211200058944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3oyODEyNjMwOA==,size_16,color_FFFFFF,t_70)
+
+# 国际化信息功能示例
+1. yaml文件配置例子
+```
+i18n:
+  message:
+    # admin
+    password_not_null:
+      en: Password can't be null
+      cn: 密码不能为空
+    password_cannot_same:
+      en: The old and new passwords cannot be the same
+      cn: 新旧密码不能相同
+  default-lang: cn
+```
+2. 添加I18NKey枚举类
+```
+@AllArgsConstructor
+public enum AdminI18NKey implements I18NKey {
+    /**
+     * admin i18n message key enum
+     */
+    PASSWORD_NOT_NULL("password_not_null") ,
+    NEW_OLD_PASSWORD_CANNOT_SAME("password_cannot_same") ;
+
+    private final String key;
+
+    @Override
+    public String key() {
+        return key;
+    }
+}
+```
+3. 异常抛I18NKey
+```
+ApiAssert.notEquals(old,newPassword,AdminI18NKey.NEW_OLD_PASSWORD_CANNOT_SAME);
+```
