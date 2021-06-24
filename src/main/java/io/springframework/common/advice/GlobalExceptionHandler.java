@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = ApiException.class)
     public ServerResponse<?> businessExceptionHandler(ApiException e) {
         log.error("业务错误： {}", e.getMessage());
-        return ServerResponse.of(e.getCode(), i18NMessage.message(e.getMessage(),request.getHeader(I18N_HEADER)));
+        return ServerResponse.of(e.getCode(), i18NMessage.message(e.getMessage(), request.getHeader(I18N_HEADER), e.getMsgFormats()));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

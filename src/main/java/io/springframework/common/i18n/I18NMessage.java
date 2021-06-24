@@ -31,11 +31,13 @@ public class I18NMessage {
      *
      * @param key
      * @param language
+     * @param formats  message string format
      * @return
      */
-    public String message(I18NKey key, String language) {
+    public String message(I18NKey key, String language, Object... formats) {
         return Optional.ofNullable(message.get(key.key()))
                 .map(map -> map.get(language == null ? defaultLang : language))
+                .map(msg -> formats == null ? msg : String.format(msg, formats))
                 .orElse(key.key());
     }
 
@@ -44,11 +46,13 @@ public class I18NMessage {
      *
      * @param key
      * @param language
+     * @param formats  message string format
      * @return
      */
-    public String message(String key, String language) {
+    public String message(String key, String language, Object... formats) {
         return Optional.ofNullable(message.get(key))
                 .map(map -> map.get(language == null ? defaultLang : language))
+                .map(msg -> formats == null ? msg : String.format(msg, formats))
                 .orElse(key);
     }
 }

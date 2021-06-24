@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 
 /**
  * Assert to throw ApiException
+ *
  * @author Wilson
  */
 public final class ApiAssert {
@@ -20,9 +21,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void notNull(Object obj, String msg) {
+    public static void notNull(Object obj, String msg, Object... formats) {
         if (obj == null) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
@@ -32,9 +33,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void notNull(Object obj, I18NKey key) {
+    public static void notNull(Object obj, I18NKey key, Object... formats) {
         if (obj == null) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
 
@@ -44,9 +45,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void isNull(Object obj, String msg) {
+    public static void isNull(Object obj, String msg, Object... formats) {
         if (obj != null) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
@@ -56,9 +57,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void isNull(Object obj, I18NKey key) {
+    public static void isNull(Object obj, I18NKey key, Object... formats) {
         if (obj != null) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
 
@@ -68,9 +69,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void isTrue(boolean expression, String msg) {
+    public static void isTrue(boolean expression, String msg, Object... formats) {
         if (!expression) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
@@ -80,15 +81,15 @@ public final class ApiAssert {
         }
     }
 
-    public static void isTrue(boolean expression, I18NKey key) {
+    public static void isTrue(boolean expression, I18NKey key, Object... formats) {
         if (!expression) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
 
-    public static void isFalse(boolean expression, String msg) {
+    public static void isFalse(boolean expression, String msg, Object... formats) {
         if (expression) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
@@ -98,9 +99,9 @@ public final class ApiAssert {
         }
     }
 
-    public static void isFalse(boolean expression, I18NKey key) {
+    public static void isFalse(boolean expression, I18NKey key, Object... formats) {
         if (expression) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
 
@@ -110,36 +111,35 @@ public final class ApiAssert {
         }
     }
 
-    public static void notEmpty(CharSequence string, String msg) {
+    public static void notEmpty(CharSequence string, String msg, Object... formats) {
         if (string == null || string.length() == 0) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
-    public static void notEmpty(CharSequence string, I18NKey key) {
+    public static void notEmpty(CharSequence string, I18NKey key, Object... formats) {
         if (string == null || string.length() == 0) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
 
-    public static <E> void isEmpty(Collection<E> collection, String msg) {
+    public static <E> void isEmpty(Collection<E> collection, String msg, Object... formats) {
         if (collection != null && !collection.isEmpty()) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
-    public static <E> void notEmpty(Collection<E> collection, String msg) {
+    public static <E> void notEmpty(Collection<E> collection, String msg, Object... formats) {
         if (collection == null || collection.isEmpty()) {
-            throw new ApiException(msg);
+            throw new ApiException(msg, formats);
         }
     }
 
-    public static <E> void notEmpty(Collection<E> collection, I18NKey key) {
+    public static <E> void notEmpty(Collection<E> collection, I18NKey key, Object... formats) {
         if (collection == null || collection.isEmpty()) {
-            throw new ApiException(key);
+            throw new ApiException(key, formats);
         }
     }
-
 
 
     /**
@@ -163,7 +163,7 @@ public final class ApiAssert {
      * @param key
      * @throws ApiException collection is empty
      */
-    public static <E> void equals(Object a, Object b, I18NKey key) {
+    public static <E> void equals(Object a, Object b, I18NKey key, Object... formats) {
         if (!Objects.equals(a, b)) {
             throw new ApiException(key.key());
         }
@@ -190,7 +190,7 @@ public final class ApiAssert {
      * @param key
      * @throws ApiException collection is empty
      */
-    public static <E> void notEquals(Object a, Object b, I18NKey key) {
+    public static <E> void notEquals(Object a, Object b, I18NKey key, Object... formats) {
         if (Objects.equals(a, b)) {
             throw new ApiException(key.key());
         }

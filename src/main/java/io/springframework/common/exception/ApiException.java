@@ -4,6 +4,7 @@ import io.springframework.common.i18n.I18NKey;
 import io.springframework.common.response.CodeMsg;
 import io.springframework.common.response.HttpCodeMsg;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 /**
  * 全局异常
@@ -14,6 +15,7 @@ import lombok.Getter;
 @Getter
 public class ApiException extends RuntimeException {
     private final Integer code;
+    private Object[] msgFormats;
 
     public ApiException(String message) {
         super(message);
@@ -28,6 +30,18 @@ public class ApiException extends RuntimeException {
     public ApiException(Integer code, String message) {
         super(message);
         this.code = code;
+    }
+
+    public ApiException(String message, Object... msgFormats) {
+        super(message);
+        this.msgFormats = msgFormats;
+        this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+    }
+
+    public ApiException(I18NKey key, Object... msgFormats) {
+        super(key.key());
+        this.msgFormats = msgFormats;
+        this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
     }
 
     /**
