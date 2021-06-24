@@ -37,6 +37,14 @@ public class GlobalExceptionHandler {
         return ServerResponse.of(e.getCode(), i18NMessage.message(e.getMessage(), request.getHeader(I18N_HEADER), e.getMsgFormats()));
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(value = RuntimeException.class)
+    public ServerResponse<?> businessExceptionHandler(RuntimeException e) {
+        log.error("业务错误： {}", e.getMessage());
+        return ServerResponse.serverError(i18NMessage.message(e.getMessage(), request.getHeader(I18N_HEADER)));
+    }
+
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = JsonProcessingException.class)
     public ServerResponse<?> jsonProcessingException(JsonProcessingException e) {
