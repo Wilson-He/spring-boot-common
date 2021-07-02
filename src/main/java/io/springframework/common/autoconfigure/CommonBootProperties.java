@@ -1,21 +1,20 @@
 package io.springframework.common.autoconfigure;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Wilson
  */
-@ConfigurationProperties("spring.common")
-@ConfigurationPropertiesBinding
-@Getter
-@ToString
+@ConfigurationProperties(prefix = "spring.common")
+@Component
+@Data
 public class CommonBootProperties {
     private List<Class<?>> injectClasses;
     private GlobalResponse globalResponse;
@@ -39,5 +38,9 @@ public class CommonBootProperties {
          * 设置指定路径不会返回{@link io.springframework.common.response.ServerResponse}
          */
         private List<String> ignorePaths = new ArrayList<>();
+        /**
+         * 全局headers
+         */
+        private Map<String, String> headers = new HashMap<>();
     }
 }

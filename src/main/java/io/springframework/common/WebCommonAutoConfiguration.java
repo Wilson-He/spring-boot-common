@@ -21,7 +21,6 @@ import java.util.Optional;
 @Configuration
 @ComponentScan
 @AllArgsConstructor
-@EnableConfigurationProperties(CommonBootProperties.class)
 @Slf4j
 public class WebCommonAutoConfiguration {
     private final ObjectMapper objectMapper;
